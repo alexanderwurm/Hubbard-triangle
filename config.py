@@ -12,6 +12,6 @@ from IPython.display import Image
 ########################################
 
 NSITES = 3
-N_electrons = 4
+N_electrons = 2
 t = 1.0
-U = 1.5
+U = 1.0

@@ -52,14 +52,14 @@ def hop_sign(test_hop, state1, state2):
     return (-1)**sum(state1[0:test_hop[0]]) * (-1)**sum(state2[0:test_hop[1]])
 
 # generate the Hamiltonian
-def generate_Hamiltonian(states):
+def generate_Hamiltonian(states, Ui=U):
     dim = len(states)
     H_coulomb, H_hop = np.zeros((dim, dim)), np.zeros((dim, dim))
 
     for i, state in enumerate(states):
         for j in range(0, 3):            
             if n_site(state, j) == 2:
-                H_coulomb[i][i] += U
+                H_coulomb[i][i] += Ui
             
     for i, state1 in enumerate(states):
         for j, state2 in enumerate(states):
