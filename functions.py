@@ -53,6 +53,7 @@ def hop_sign(test_hop, state1, state2):
 
 # generate the Hamiltonian
 def generate_Hamiltonian(states, Ui=U):
+    #print("U = ", Ui)
     dim = len(states)
     H_coulomb, H_hop = np.zeros((dim, dim)), np.zeros((dim, dim))
 
@@ -70,8 +71,8 @@ def generate_Hamiltonian(states, Ui=U):
     
     return H_coulomb + H_hop
 
-# generate the Sz matrix as described in the task
-def calc_Sz(states):
+# generate the S matrix as described in the task
+def calc_S(states):
     i = 0
     j = 0
     Sz_a, Sz_b, Sz_c = np.zeros([len(states), len(states)]), np.zeros([len(states), len(states)]), np.zeros([len(states), len(states)])
