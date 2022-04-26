@@ -90,3 +90,14 @@ def calc_S(states):
         i=0
         j+=1
     return (Sz_a*Sz_b + Sz_b*Sz_c + Sz_a*Sz_c)/3
+
+# grand canonic partition function
+def Z(eps,beta):
+    return np.sum(np.exp(-beta*eps))
+
+# grand canonic expectation value with normalized EV
+def Avg(matrix, beta, eps, eps_min):  
+    avg = 0
+    for elem in matrix:
+        avg += elem[0] * np.exp(-beta*(elem[1]-eps_min))
+    return avg / Z(eps-eps_min, beta)
