@@ -101,3 +101,12 @@ def Avg(matrix, beta, eps, eps_min):
     for elem in matrix:
         avg += elem[0] * np.exp(-beta*(elem[1]-eps_min))
     return avg / Z(eps-eps_min, beta)
+
+def Avg2(matrix, beta, eps, eps_min):  
+    avg = 0
+    cnt = 0
+    for elem in matrix:
+        if np.abs(elem[1]-eps_min) < 1e-4:
+            cnt+=1
+            avg += elem[0]
+    return avg/cnt
